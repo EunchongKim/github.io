@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head><title>Report on DB assignment</title>
+<style>
+  body { font-size: 120%; }
+  h1 { margin-bottom: -0.5em; }
+  #num { text-align:right; padding-right:20px; }
+  td { text-align:center; }
+  td.t1 { text-align:left; }
+  pre { white-space: pre-wrap; }
+  pre, .indent { margin-left:20px; }
+  .bad { font-size: 120%; }
+</style>
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/highlight.js/9.9.0/styles/xcode.min.css"/>
+<script
+  src="https://cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/highlight.js/9.9.0/languages/java.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h1>Report on DB assignment</h1>
+<p id="num">Candidate Number: 45625</p>
+
+<p>This database program contains four classes; <code>Database, Query, Table and Record</code>. To use an user interface and query with the whole structure of the program, compile with</p>
+<pre><code class="java">javac Database.java</code></pre>
+<p><code>Record</code> and <code>Table</code> class can be also compiled individually. <code>Record</code> scans user input as one record and shows it is properly held and also contains an automated unit testing. Running <code>Table</code> automatically checks unit tests inside. Each development per each step will be briefly reported as follows. Exploring the entire structure with examples using queries and inspecting the effect of decisions made can be found in <strong>Query</strong> stage.</p>
+
+<p>These are lists of Extensions done in this assignment:</p>
+<ul>
+<li>Types - integer/string, null/not null, foreign key</li>
+<li>Constraints - foreign key, data types</li>
+<li>Catalogs - a list of databases and tables, the names and types of their columns</li>
+<li>Query - queries using the way of MySQL (*Because it is decided before 'SQL notes' update)</li>
+<li>Transactions - continuousness despite failure of queries</li>
+<li>Journals - data storage in a file as operations happen</li>
+<li>User Interface - a textual user interface in a command window with the format of MariaDB</li>
+</ul>
+
+<h2>Records</h2>
+
+<p><code>Record</code> class is to hold each record of tables and to export it when it is needed. <code>List&lt;String></code> is used to store several strings into a record, and a record can be read by each string from outside to prevent a danger of returning <code>ArrayList</code> itself. A record is initialised with table name it belongs to. It makes a record to be known what table it is in. To check <code>Record</code> class runs:</p>
+<pre><code class="java">javac Record.java
+java Record
+>>Test strat&lt;&lt; (*Unit testing)
+>>Test end&lt;&lt;
+HomeDB > 1, Fido, dog, ab123 (*User input)
+1, Fido, dog, ab123 (*To show it is recorded)
+</code></pre>
+
+<h2>Tables</h2>
+
+<p><code>Table</code> class takes a role of controlling operations at the table level. Before starting to generate each function, thinking over and deciding the data structure of table was important at this stage to make main manipulations of database run efficiently and to reduce time complexity. Here are some considerations on possible structures:</p>
+
+<table style="float:left" class="indent"><tbody>
+<tr><th></th><th>Insert</th><th colspan="2">Select/Delete/Update</th><th>Order provided</th></tr>
+<tr><td></td><td></td><td>With DB keys</td><td>W/O DB keys</td><td></td></tr>
+<tr><td class="t1">HashMap</td><td>O(1)</td><td>O(1)</td><td>O(n)</td><td>-</td></tr>
+<tr><td class="t1">TreeMap</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td><td>Natural Order</td></tr>
+<tr><td class="t1">Linked-HashMap</td><td>O(1)</td><td>O(1)</td><td>O(n)</td><td>Insertion Order</td></tr>
+<tr><td class="t1">ArrayList</td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>-</td></tr>
+</tbody></table>
+
+<p style="clear:both"><br/>The final choice is using <strong>TreeMap</strong>. The reasons why choosing TreeMap: Firstly, it can generate natural order everytime operating which the actual database systems also provide to make user easy to check their data. Secondly, its memory consumption is relatively saved in comparison to HashMap. Finally, the time complexity of operations with DB keys which is more common in a database is comparatively reasonable and effective.</p>
+
+<p>In <code>Table</code> class, a constructor of a table needs table and database name which makes it possible to find them the table belongs to. Besides, a table is initialised with field names at this stage. This information makes a table know what database it is in and supports to create a table with given column names. If a new column is added, fields size can be individually changed. <code>Table</code> class checks the field size as any operation is attempted, it can modify columns size and data also.</p>
+
+<pre><code class="java">Table(String tbname, String database) {
+    this.tbname = tbname;
+    this.database = database;
+}
+
+void init(String[] fields) {
+    table = new TreeMap&lt;String, Record>();
+    initfields(fields);
+}
+
+void initfields(String[] fields) {
+    this.fields = fields;
+    colsize = fields.length;       
+}
+</code></pre>
+
+<p>To process several records at once, all functions for operations get parameters as <code>List&lt;Record></code>.</p>
+
+<p>Table supports main operations to insert, delete, update and select a record. It can be generally done in two ways; with DB keys and without DB keys. At this stage, other data or key types haven't been applied yet, <code>Table</code> only has functions operated by row numbers. If a table doesn't have a key, it generates a row number as a key to insert into the table which is stored in TreeMap. When deleting happens without a key, delete function in <code>Table</code> will modify all other row numbers which need to be changed.</p>
+
+<pre><code class="java">void delete(List&lt;Record> records) {
+    if (records.isEmpty()||checkinvalid(records)) invalid();
+    try {
+        for (int i=0; i&lt;records.size(); i++) {
+            String pos=null;
+            for(Map.Entry&lt;String,Record> entry : table.entrySet()) {
+                readlines(records.get(i));
+                comparelines(entry.getValue());
+                if(checkequal==colsize) pos = entry.getKey();
+            }
+            if(pos!=null) {
+                table.remove(pos);
+                reorder(Integer.parseInt(pos));
+            }
+        } 
+    }
+    catch (Exception e) { fail(); }
+}
+
+// If row numbers are used as keys, modify row numbers after delete
+void reorder(int i) {
+    for (int k=i;k&lt;table.size();k++) {
+        if(k==i)
+            table.put(Integer.toString(k), table.get(Integer.toString(k+1)));
+        else
+            table.replace(Integer.toString(k), table.get(Integer.toString(k+1)));
+    }
+    table.remove(Integer.toString(table.size()-1));
+}
+</code></pre>
+
+<p>When compiling <code>Table</code> class itself, it will automatically do the unit testing.</p>
+
+<pre><code class="java">javac Table.java
+java Table
+>>Test strat&lt;&lt; (*Unit testing)
+>>Test end&lt;&lt;
+</code></pre>
+
+<h2>Files</h2>
+
+<p>Inside <code>Table</code> class, it is possible to read txt file as a table and to store the current table to a file. File also contains each field information. A comma is used to divide fields and a newline to terminate a record.</p>
+
+<pre>
+Id, Name, Kind, Owner
+1, Fido, dog, ab123
+2, Wanda, fish, ef789
+3, Garfield, cat, ab123
+4, Nimo, fish, cd456
+</pre>
+
+<h2>Printing</h2>
+
+<p>A table can be printed in a certain format. The format to print is borrowed from MariaDB. Integer is in the right alignment. It looks like:</p>
+
+<pre>
+  >>This DB system's printing&lt;&lt;
++----+----------+------+-------+
+| Id | Name     | Kind | Owner |
++----+----------+------+-------+
+|  1 | Fido     | dog  | ab123 |
+|  2 | Wanda    | fish | ef789 |
+|  3 | Garfield | cat  | ab123 |
+|  4 | Nimo     | fish | cd456 |
++----+----------+------+-------+
+Query OK (0.002 sec)
+
+      >>MariaDB printing&lt;&lt;
++----+----------+------+-------+
+| Id | Name     | Kind | Owner |
++----+----------+------+-------+
+|  1 | Fido     | dog  | ab123 |
+|  2 | Wanda    | fish | ef789 |
+|  3 | Garfield | cat  | ab123 |
+|  4 | Nimo     | fish | cd456 |
++----+----------+------+-------+
+4 rows in set (0.01 sec)
+</pre>
+
+<h2>Keys</h2>
+
+<p>Now, it is time to consider make database operations with keys. To support keys, <code>Table</code> class needs to modify and add more functions. At this stage, <code>Table</code> contains names, data types, primary key and foreign key information of each field.</p>
+
+<pre><code class="java">void init(String[] fields, String[] types, String[] keyT, String[] foreign) {
+    table = new TreeMap&lt;String, Record>();
+    initfields(fields);
+    inittypes(types);
+    initkeys(keyT);
+    initforeign(foreign);
+    initspace();
+}</code></pre>
+
+<p> File will also be stored like this:</p>
+
+<pre>
+Id, Name, Kind, Owner
+<strong>INT, STR, STR, STR
+PRIKEY, NOTN, NOTN, NOTN
+NULL, NULL, NULL, People(Username)</strong>
+1, Fido, dog, ab123
+2, Wanda, fish, ef789
+3, Garfield, cat, ab123
+4, Nimo, fish, cd456
+</pre>
+
+<p>The other important changes are that adding functions to support keys and checking constraints according to key information. After including functions for each operation with keys, it can manipulate two different kinds of record, with keys and without keys. Especially for select which is the most frequent operation in a database system, this DB system can support</p>
+
+<pre>Select all table ( SELECT * FROM Animal; )
+Select all fields where condition meets ( SELECT * FROM Animal WHERE Owner=ab123; )
+Select chosen fields where condition meets ( SELECT Id, Name FROM Animal WHERE Owner=ab123; )
+</pre>
+
+<p>When operations are made, checking some constraints of data can be done by using these features. Primarily, if the table has foreign keys, it will automatically check the data attempted to insert is in the foreign table or not. Here is the screenshot of checking foreign key constraints using this DB system: </p>
+
+<pre>
+HomeDB [test]> SELECT * FROM People;
++----------+------+
+| Username | Name |
++----------+------+
+| ab123    | Jo   |
+| cd456    | Sam  |
+| ef789    | Amy  |
+| gh012    | Pete |
++----------+------+
+Query OK (0.004 sec)
+
+HomeDB [test]> DROP TABLE IF EXISTS Animal;
+Query OK (0.005 sec)
+
+HomeDB [test]> CREATE TABLE Animal (Id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Kind VARCHAR NOT NULL, Owner VARCHAR NOT NULL, FOREIGN KEY (Owner) REFERENCES People(Username));
+Query OK (0.001 sec)
+
+HomeDB [test]> CREATE TABLE Animal (Id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Kind VARCHAR NOT NULL, Owner VARCHAR NOT NULL, FOREIGN KEY (Owner) REFERENCES Human(Username));
+<strong>ERROR: Can't find Foreign keys data</strong>
+<i>(&lt;&lt; Foreign table name is wrong)</i>
+
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (1, Fido, dog, ab123);
+Insert time (0.0 sec)
++----+------+------+-------+
+| Id | Name | Kind | Owner |
++----+------+------+-------+
+|  1 | Fido | dog  | ab123 |
++----+------+------+-------+
+Query OK (0.001 sec)
+
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (2, Wanda, fish, ff111);
+<strong>ERROR: Can't find the foreign field</strong>
+<i>(&lt;&lt; Foreign value is not in the foreign table)</i>
+</pre>
+
+<p>Other constraints are to check if field names inserted appropriately match to the table's field data, to check right data type is inserted if it has 'INTEGER' type, and to check if data is null when the type is 'NOT NULL'.</p>
+
+<pre>
+HomeDB [test]> INSERT INTO Animal (aa, bb, cc, dd) VALUES (5, Pink, shark, cd456);
+<strong>ERROR: Failed to find fields</strong>
+
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (aa, Nimo, fish, ab123);
+<strong>ERROR: Insert right data types</strong>
+
+HomeDB [test]> INSERT INTO Animal (Id, Kind, Owner) VALUES (5, Pink, shark, cd456);
+<strong>ERROR: Record size doesn't match to field size</strong>
+</pre>
+
+<h2>Databases</h2>
+
+<p>Databases are represented as a folder directory in this system. If 'SHOW DATABASES' query comes, it checks subdirectories and prints them as databases.</p>
+
+<pre>
+HomeDB [test]> SHOW DATABASES;
++----------+
+| database |
++----------+
+| test     |
+| test2    |
++----------+
+</pre>
+
+<p>If users want to change a database, it can be changed anytime even though they use another database.</p>
+
+<pre>
+HomeDB [(none)]> USE test;
+Database changed
+HomeDB [test]> USE test2;
+Database changed
+HomeDB [test2]> 
+</pre>
+
+<p>To quit database system, just type 'quit'.</p>
+
+<pre>
+HomeDB [test2]> quit
+<strong>Bye</strong>
+</pre>
+
+<h2>Extensions &amp; Query</h2>
+
+<p>Some extensions are already dealt with as above. In this stage, comparing time complexity between using DB keys to insert and select and not using them. Finally, it will show the whole journey of a textual user interface by exploring operations, constraints, catalogs and transactions.</p>
+
+<p>Basically, the total time to process each query will be printed. In addition to this, insert and select time difference whether keys are used to do or not to do will check TreeMap's time complexity when keys are properly provided. The test file containing more than 200,000 lines of data is used to examine. (It remains only a few lines in the submitted version.) The first case is using a primary key to find records and the second case is using another field which is not key in the same table.</p>
+
+<pre>
+HomeDB [test]> SELECT * FROM checktime WHERE Id=100000;
+<strong>Select time (0.0 sec)</strong>
+
++-------+---------------------+--------+
+| Id    | name                | gender |
++-------+---------------------+--------+
+| 12345 | Stephen12345Stephen | Female |
++-------+---------------------+--------+
+Query OK (0.497 sec)
+
+HomeDB [test]> SELECT * FROM checktime WHERE name=Stephen100000Stephen;
+<strong>Select time (0.037 sec)</strong>
+
++-------+---------------------+--------+
+| Id    | name                | gender |
++-------+---------------------+--------+
+| 12345 | Stephen12345Stephen | Female |
++-------+---------------------+--------+
+Query OK (0.568 sec)
+</pre>
+
+<p>It has shown that the select time is '0.0 sec' when using the primary key, Id, whereas it is '0.037 sec' when using the name which is not key. However, insert shows the same time complexity in both occasions as mentioned above chart in <strong>Table</strong>.</p>
+
+<pre>
+HomeDB [test]> INSERT INTO checktime (Id, name, gender) VALUES (333333, Bob, male);
+<strong>Insert time (0.0 sec)</strong>
+Query OK (0.168 sec)
+
+HomeDB [test]> INSERT INTO withoutkey (Id, name, gender) VALUES (333333, Bob, male);
+<strong>Insert time (0.0 sec)</strong>
+Query OK (0.18 sec)
+</pre>
+
+<p>Now, the entire flow of this DB system with the textual UI can be seen as below.</p>
+
+<pre>
+Welcome to HomeDB. Commands end with ;.
+Your HomeDB connection id is 1
+Copyright(c) 2018, COMSM0103, Java, HomeDB
+
+Please use a upper case for querying, except for 'quit'
+
+HomeDB [(none)]> SHOW DATABASES;
++----------+
+| database |
++----------+
+| test     |
+| test2    |
++----------+
+HomeDB [(none)]> USE test;
+Database changed
+HomeDB [test]> SHOW TABLES;
++---------------+
+| Table_in_test |
++---------------+
+| readtext      |
+| maketext      |
+| Animal        |
+| People        |
+| checktime     |
+| withoutkey    |
++---------------+
+
+<strong><i>(&lt;&lt; To check if the system continues regardless of invalid query)</i></strong>
+HomeDB [test]> ;
+ERROR: No query specified
+HomeDB [test]>    ;
+ERROR: No query specified
+HomeDB [test]> for invalid check;    
+ERROR: No query specified
+HomeDB [test]> DROP TABLE IF EXISTS Animal;
+Query OK (0.019 sec)
+
+HomeDB [test]> DROP TABLE IF EXISTS People;
+Query OK (0.009 sec)
+
+HomeDB [test]> SHOW TABLES;
++---------------+
+| Table_in_test |
++---------------+
+| readtext      |
+| maketext      |
+| checktime     |
+| withoutkey    |
++---------------+
+HomeDB [test]> CREATE TABLE People (Username VARCHAR PRIMARY KEY, Name VARCHAR NOT NULL);
+Query OK (0.003 sec)
+
+HomeDB [test]> CREATE TABLE Animal (Id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Kind VARCHAR NOT NULL, Owner VARCHAR NOT NULL, FOREIGN KEY (Owner) REFERENCES People(Username));
+Query OK (0.002 sec)
+
+<strong><i>(&lt;&lt; To check if duplicate table name to create is prevented)</i></strong>
+HomeDB [test]> CREATE TABLE Animal (Id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Kind VARCHAR NOT NULL, Owner VARCHAR NOT NULL, FOREIGN KEY (Owner) REFERENCES People(Username));
+<strong>ERROR: Table name already exists</strong>
+
+HomeDB [test]> SHOW TABLES;
++---------------+
+| Table_in_test |
++---------------+
+| readtext      |
+| maketext      |
+| Animal        |
+| People        |
+| checktime     |
+| withoutkey    |
++---------------+
+HomeDB [test]> INSERT INTO People (Username, Name) VALUES (ab123, Jo);
+Insert time (0.0 sec)
+Query OK (0.001 sec)
+
+<strong><i>(&lt;&lt; To check if duplication is prevented)</i></strong>
+HomeDB [test]> INSERT INTO People (Username, Name) VALUES (ab123, Jo);
+HomeDB [test]> INSERT INTO People (Username, Name) VALUES (cd456, Sam);
+HomeDB [test]> INSERT INTO People (Username, Name) VALUES (ef789, Amy);
+HomeDB [test]> INSERT INTO People (Username, Name) VALUES (gh012, Pete);
+
+<strong><i>(&lt;&lt; To check improper insert prevented and the system continuously runs)</i></strong>
+HomeDB [test]> INSERT INTO People (Id, Name, Kind, Owner) VALUES (1, Fido, dog, ab123);
+<strong>ERROR: Insert failed</strong>
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (1, Fido, dog, ab123);
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (2, Wanda, fish, ef789);
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (3, Garfield, cat, ab123);
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (4, Nimo, fish, cd456);
+
+HomeDB [test]> SELECT * FROM Animal;
++----+----------+------+-------+
+| Id | Name     | Kind | Owner |
++----+----------+------+-------+
+|  1 | Fido     | dog  | ab123 |
+|  2 | Wanda    | fish | ef789 |
+|  3 | Garfield | cat  | ab123 |
+|  4 | Nimo     | fish | cd456 |
++----+----------+------+-------+
+Query OK (0.008 sec)
+
+HomeDB [test]> SELECT * FROM People;
++----------+------+
+| Username | Name |
++----------+------+
+| ab123    | Jo   |
+| cd456    | Sam  |
+| ef789    | Amy  |
+| gh012    | Pete |
++----------+------+
+Query OK (0.002 sec)
+
+HomeDB [test]> SELECT * FROM Animal WHERE Owner=ab123;
+Select time (0.007 sec)
++----+----------+------+-------+
+| Id | Name     | Kind | Owner |
++----+----------+------+-------+
+| 1  | Fido     | dog  | ab123 |
+| 3  | Garfield | cat  | ab123 |
++----+----------+------+-------+
+Query OK (0.011 sec)
+
+HomeDB [test]> SELECT * FROM People WHERE Name=Sam;
+Select time (0.007 sec)
++----------+------+
+| Username | Name |
++----------+------+
+| cd456    | Sam  |
++----------+------+
+Query OK (0.045 sec)
+
+HomeDB [test]> SELECT Id, Name, Kind FROM Animal WHERE Owner=ab123;
+Select time (0.0 sec)
++----+----------+------+
+| Id | Name     | Kind |
++----+----------+------+
+| 1  | Fido     | dog  |
+| 3  | Garfield | cat  |
++----+----------+------+
+Query OK (0.002 sec)
+
+HomeDB [test]> SELECT Username FROM People WHERE Name=Amy;
+Select time (0.0 sec)
++----------+
+| Username |
++----------+
+| ef789    |
++----------+
+Query OK (0.002 sec)
+
+</pre>
+</body>
+</html>

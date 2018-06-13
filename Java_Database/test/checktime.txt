@@ -1,0 +1,12 @@
+Id, name, gender
+INT, STR, STR
+PRIKEY, NOTN, NOTN
+NULL, NULL, NULL
+1, Stephen1Stephen, Female
+10, Stephen10Stephen, Female
+100, Stephen100Stephen, Female
+1000, Stephen1000Stephen, Female
+10000, Stephen10000Stephen, Female
+100000, Stephen100000Stephen, Female
+100001, Stephen100001Stephen, Female
+100002, Stephen100002Stephen, Female

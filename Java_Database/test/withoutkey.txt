@@ -1,0 +1,11 @@
+Id, name, gender
+INT, STR, STR
+NOTN, NOTN, NOTN
+NULL, NULL, NULL
+1, Stephen1Stephen, Female
+2, Stephen2Stephen, Female
+19001, Stephen19001Stephen, Female
+190075, Stephen190075Stephen, Female
+190805, Stephen190805Stephen, Female
+198097, Stephen198097Stephen, Female
+694, Stephen694Stephen, Female

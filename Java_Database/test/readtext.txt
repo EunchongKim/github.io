@@ -1,0 +1,7 @@
+Id, Name, Kind, Owner
+INT, STR, STR, STR
+PRIKEY, NOTN, NOTN, NOTN
+NULL, NULL, NULL, People(Username)
+1, Waldo, cutedog, ab123
+2, Nimo, fish, ef789
+3, Miyao, cat, ab123
