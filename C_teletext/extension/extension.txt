@@ -1,0 +1,23 @@
+1. Recipe
+ - make all
+ - ./tele_html sample.html html.m7
+ - ./tele_base html.m7
+
+2. Result
+ - 'sample.html' or 'HTML.gif' is html feature and 'TELE_FROM_HTML.gif' is automatically converted to teletext from html file.
+
+3. Explanation
+ - HTML has specific grammar structure using tags. Realising all the tags of HTML is impossible, so I choose some instructions that can be built by teletext. The instruction structure can be found inside ".h" file. I tried to recognise color, background color, size(double height), new line, list, align, list type. I successfully finish to generate teletext having those features, but some tags are partly received finally.
+ 3.1. Realisation
+  - I think that converting HTML file to teletext is similar to make a small compiler. To do this, HTML tags should be parsed first and also need to be extracted some information to show words to screen.
+  - HTML_Lexer
+    : The first step is that simply parsing using brackets. I used Stack to parse all the words after setting some rules on my own. And then store them into a set.(Seeing "parser.png")
+  - Tag_Parser
+    : Next, separate tags in small part that can be compare to the words of tag. This makes it possible to understand the meaning of tag in "Set_Ins" function.
+  - Set_Ins
+    : In this step, it is available to compare tag and stored tag information. (like symtol table in lexer and parser) If tag matches to symbol, (i.e.'<H1', 'color' ...) store that symbol's information to the Symbol structure. (inside a set) Again, using Stack to separate each tag and words.
+  - Gener_Text (Convert to teletext)
+    : Using the Symbol structure's information, setting the new rules to convert in actual teletext hexadecimals.
+
+4. Implication
+ - Setting and generating rules and regulations to convert the one which has different grammars is not easy to realise. This exercise was felt like that understanding parsing the text files and catching a slight sense of making compiler. Even though this code can't convert all general HTML file, it was meaningful to have experiences of connecting two different languages like being a machine.

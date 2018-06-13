@@ -1,0 +1,17 @@
+1.Recipe
+ - make all
+ - ./tele_test
+
+2. Explanation
+ 2.1. First Part
+  - The first part of test ("First_test") to check each funtion in the source code. My strategy is that pass 3 test files (the provided ones, test.m7, panda.m7 and lfc.m7) and check in each function there is any error detected. By putting error message in each function, I can easily know that which part has a problem if there is an error. I can't test all the lines like in decoding part, so I choose the second part test.
+  - In the first part, by passing through indexes 'errors' and 'times', lines of codes can be examined and it is also possible to check if the code can go through to each function throughly.
+ 2.2. Second Part
+  - In this part, I try to check if all each character have proper instructions. By using 3 test files, examining each hexadecimal can be correctly converted and has right insturctions.
+  - The main reason why I chose this way to test is that instructions can be checked to remain until breaking rules come up. If I set right instructions according to rules in the test code and check if they actually match and maintain, it is possible to know that my code is aside from general teletext rules or not.
+
+3. Implication
+ - While doing this test part, I realise that it is hard to check the previous lines' properties of control codes in the current code structure. However, it still has benefits to deal with teletext and it is enough to get all information needed. This is because teletext's structure itself is not too complicated and has some limitations. Teletext has a limited length and structure that make it possible to be accessed to the previous one at some extent without storing all the data to the static data storage.
+ - Teletext's principles depend on decisions, but some limitations could be found by testing. For example, it is hard to print the upper part of double height twice; same double height upper part to both the upper line and the bottom line. 
+
+
