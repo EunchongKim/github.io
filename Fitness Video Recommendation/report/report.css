@@ -1,0 +1,36 @@
+body { font-size: 120%; }
+h1 { margin-bottom: -0.5em; }
+#num { text-align:right; padding-right:20px; }
+td { text-align:center; }
+td.t1 { text-align:left; }
+pre { white-space: pre-wrap; }
+pre, .indent { margin-left:20px; }
+.bad { font-size: 120%; }
+
+video {
+    width: 520px;
+    height: 440px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+li {
+    margin-top: 10px;
+}
+
+.list {
+    display: inline-flex;
+}
+
+#image0 {
+    width: 700px;
+    height: 400px;
+    margin-left: 40px;
+}
+
+#image1 {
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin-left: 40px;
+}

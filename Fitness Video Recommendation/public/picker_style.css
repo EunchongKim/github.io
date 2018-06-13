@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "Paul Slab";
+    src: url(/fonts/PaulSlab.otf) format("otf");
+    src: url(/fonts/PaulSlab-Bold-Trail.otf) format("otf");
+}
+
+#canvas {
+    position:relative;
+    background: url("/image/listbackground.png") no-repeat center;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.indexbutton {
+    font-family: "Paul Slab", cursive;
+    background-color: #8A927C;
+    border-radius: 5px;
+    color: white;
+    padding: 0.6em 0.9em;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.submitbutton {
+    font-family: "Paul Slab", cursive;
+    background-color: #7285a7;
+    border-radius: 5px;
+    color: white;
+    padding: 0.6em 0.9em;
+    text-align: center;
+    font-size: 1em;
+}
+
+#b1 {
+    position:absolute;
+    left:20%;
+    top:10%
+}
+
+#b2 {
+    position:absolute;
+    left:30%;
+    top:20%
+}
+
+#b3 {
+    position:absolute;
+    left:20%;
+    top:30%
+}
+
+#b4 {
+    position:absolute;
+    left:30%;
+    top:40%
+}
+
+#b5 {
+    position:absolute;
+    left:20%;
+    top:50%
+}
+
+#b6 {
+    position:absolute;
+    left:30%;
+    top:60%
+}
+
+#b7 {
+    position:absolute;
+    left:20%;
+    top:70%
+}
+
+#b8 {
+    position:absolute;
+    left:30%;
+    top:80%
+}
+
+#b9 {
+    position:absolute;
+    left:20%;
+    top:90%
+}
+
+#b10 {
+    position:absolute;
+    left:60%;
+    top: 10%
+}
+
+#b11 {
+    position:absolute;
+    left:70%;
+    top: 20%
+}
+
+#b12 {
+    position:absolute;
+    left:60%;
+    top: 30%
+}
+
+#b13 {
+    position:absolute;
+    left:70%;
+    top: 40%
+}
+
+#b14 {
+    position:absolute;
+    left:60%;
+    top: 50%
+}
+
+#b15 {
+    position:absolute;
+    left:70%;
+    top: 60%
+}
+
+#b16 {
+    position:absolute;
+    left:60%;
+    top: 70%
+}
+
+#b17 {
+    position:absolute;
+    left:70%;
+    top: 80%
+}
+
+#submit {
+    position:absolute;
+    left:60%;
+    top: 90%
+}
+
+#continue {
+    position:absolute;
+    left:70%;
+    top: 90%
+}
+
