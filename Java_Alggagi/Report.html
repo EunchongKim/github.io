@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head><title>Report on DB assignment</title>
+    <style>
+        body { font-size: 120%; }
+        h1 { margin-bottom: -0.5em; }
+        #num { text-align:right; padding-right:20px; }
+        td { text-align:center; }
+        td.t1 { text-align:left; }
+        pre { white-space: pre-wrap; }
+        pre, .indent { margin-left:20px; }
+        .bad { font-size: 120%; }
+    </style>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/highlight.js/9.9.0/styles/xcode.min.css"/>
+    <script
+            src="https://cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+    <script
+            src="https://cdn.jsdelivr.net/highlight.js/9.9.0/languages/java.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h1>Report on Graphic Assignment</h1>
+<p id="num">Candidate Number: 45625</p>
+
+<h2>Outline of the Game</h2>
+<p>This game is using the board and the stones of the traditional 'Go' game, however, exploiting a deceptively simple way of playing.
+    By clicking a stone and dragging a line where a user wants, a stone will be bounced off according to the direction and the time.
+    The objective of the game is to make all the opposite colour stones out of the board.
+    <strong>There is no reference to make this game, it is made from scratch by borrowing the rule and the concept of the offline game.</strong></p>
+<p>This game provides two modes of play, <code>AI Play Mode</code> and <code>Self Play Mode</code>.</p>
+<ul>
+    <li><code>AI Play Mode</code>: Playing with AI. Black stones are player's ones as the first turn.</li>
+    <li><code>Self Play Mode</code>: Playing both stones. All stones are controllable.</li>
+</ul>
+<p>The start page of the game briefly explains how users play it, and show the options of play modes after clicking 'Start' button.</p>
+
+<h2>Tools used</h2>
+<ul>
+    <li>JavaFX</li>
+    <li>IntelliJ IDEA</li>
+</ul>
+
+<h2>Overall experience</h2>
+<p>Interestingly, JavaFX does not provide precise collision check functions. It can change direction within <code>TimeLine</code>,
+    nevertheless, a position needs to be calculated by own functions to apply an exact direction and a length.
+    In this program, <code>TimeLine</code> is used for showing a movement of stones, <code>Mouse Event Handlers</code> is
+    used for receiving user inputs and controlling game process, <code>Stage</code> and <code>Pane</code> to show and embed objects,
+    and other functions are created by myself.</p>
+<p>It is really worthy to try this game needing a collision check and a trajectory calculation by JavaFX.
+    This development makes it possible to experience all steps including self-computing to make objects move,
+applying logic, and designing game process.</p>
+
+<h2>Design</h2>
+<p>The design is intentionally planned to be plain to evoke the atmosphere of a simple and old-school way of the game.
+The symbol of the game is romanesco broccoli representing the one of 'earth's most stunning natural fractal patterns'
+    (<a href="https://www.wired.com/2010/09/fractal-patterns-in-nature/"><i>"Earth's Most Stunning Natural Fractal Patterns, 09/10/10, Wired</i></a>)</p>
+<p>The board has the same grid as the Go's one, and each stone embeds romanesco broccoli.
+    Stones with a shade can give a looking of solid figures. When stones are dragged, a line showing the trajectory is drawn.
+    Originally, some sounds were inserted (a Chinese traditional music as background, a bump sound when stones collide, and a tension music when only one stone is left.)
+    but they caused a serious delay of movements of stones.
+    Consequently, the sound effect is deleted to remain stones smoothly moving although it can make the game lively.</p>
+<p>The stones and the board is on different <code>Pane</code>s, so they can be separately managed.
+The stones are made by <code>Circle</code> to make collision checking efficient.</p>
+
+<h2>Classes</h2>
+<p>This program contains nine <code>Java</code> classes including test and one <code>CSS</code>:
+    <code>Alggagi, MakeBoard, MoveController, AiController, CheckMove, CollisionCheck, Eject, Reflect, Test, and Style.css</code>.
+    Please compile with</p>
+<pre><code class="java">javac Alggagi.java</code></pre>
+<ul>
+    <li><code>Alggagi</code>: Generate start page and ask play mode options.</li>
+    <li><code>MakeBoard</code>: Make a board and set initial positions of stones and call each mode's class.</li>
+    <li><code>MoveController</code>: Make player movements. Based on mouse click, drag and release,
+        check time and direction, and calculate the expected trajectory.</li>
+    <li><code>AiController</code>: Toggle turns between player and AI. Make AI move by calculating each score of player stones for each AI stone
+        based on gaps between expected player stone position after shooting and the border lines.</li>
+    <li><code>CheckMove</code>: Check each move of stones and a game result and remove a stone if it is out.</li>
+    <li><code>CollisionCheck</code>: Check a collision among stones. If stones collide, make a new direction by calculating 'reflect' and 'eject'</li>
+    <li><code>Eject</code>: Calculate a bumped stone trajectory by using an end point of drawing line, a current position, and a time.</li>
+    <li><code>Reflect</code>: Calculate a reflection of a shooting stone by using a bumped stone position, a shooting stone position, and a collision point.</li>
+    <li><code>Test</code>: Unit testing for Eject and Reflect.</li>
+</ul>
+<p>The structure is <code>Alggagi</code> <strong>></strong>
+    <code>MakeBoard</code> <strong>></strong>
+    <code>MoveController, AiController</code>  <strong>></strong>
+    <code>CheckMove, CollisionCheck, Eject, Reflect</code></p>
+
+<h3>Structural experiences</h3>
+<p>There are several issues to make the structure of this program. </p>
+<ol>
+    <li>Turns of player and AI should be separately controlled.</li>
+    <li>AI mode and Self play mode need to share other functions except for AI logic part.</li>
+    <li>Stone positions and results are checked after each movement</li>
+</ol>
+<p>To solve the first and the second problems, the class of <code>AiController</code> and <code>MoveController</code> are separated,
+    and call <code>MoveController</code> inside <code>AiController</code> by employing the hierarchy of event handlers among
+    <code>setOnMousePressed</code>, <code>setOnMouseReleased</code>, <code>addEventHandler</code>
+    to go to <code>MoveController</code> and successfully get back to <code>AiController</code>.
+    By setting mouse event both in <code>AiController</code> and <code>MoveController</code>,
+    play turns can be effectively changed. Besides, theses two classes deploy the same check and calculation functions.</p>
+<pre><code class ="java"><strong>AiController.java</strong>
+
+    for (Shape stone : allStones) {
+        stone.setOnMousePressed(e -> makeMove.moveControl());
+        stone.setOnMouseReleased(e -> {
+            Task&ltVoid> sleeper = new Task<>() {
+                @Override
+                protected Void call() {
+                    try {
+                        Thread.sleep(600);
+                    } catch (InterruptedException e) {
+                        System.out.println("Sleep failed");
+                    }
+                    return null;
+                    }
+                };
+                sleeper.setOnSucceeded(e1 -> AiMoveControl());
+                new Thread(sleeper).start();
+        });
+    }
+
+<strong>MoveController.java</strong>
+
+    thisOne.setOnMousePressed(e -> { ... });
+    thisOne.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> { ... });
+    thisOne.addEventHandler(MouseEvent.MOUSE_RELEASED, e -> { ... });
+</code></pre>
+
+<p>The third issue is tricky to resolve since (i) event handlers cannot be running the order of line by line
+(ii) values should be frequently passed to other functions. To efficiently solve this problem and make the program robust,
+call <code>CheckMove</code> function inside <code>AiController</code> and <code>MoveController before each turn</code>.
+    However, evert time it is called, copy each <code>ArrayList</code> by using the parametrised constructor to make it safe and
+using getters in <code>CheckMove</code> to return lists.</p>
+
+<pre><code class = "java">public void AiMoveControl() {
+    CheckMove checkMove = new CheckMove(whiteStones, blackStones, stones, stage);
+    checkMove.checkOut();
+    whiteStones = new ArrayList<>(checkMove.returnWhite());
+    blackStones = new ArrayList<>(checkMove.returnBlack());
+    ...
+
+CheckMove(List&ltShape> whiteStones, List&ltShape> blackStones, Pane stones, Stage stage) {
+    this.whiteStones = new ArrayList<>(whiteStones);
+    this.blackStones = new ArrayList<>(blackStones);
+    this.stones = stones;
+    this.stage = stage;
+}
+
+List returnWhite() {
+    return whiteStones;
+}
+
+List returnBlack() {
+    return blackStones;
+}
+</code></pre>
+
+<p>In all class, every parameter is dealt with the above way to make it robust.</p>
+
+<h2>Calculation</h2>
+<p>There are two main calculations to make stones move. One is <code>Eject</code> and the other is <code>Reflect</code>.
+</p>
+<ul>
+    <li><code>Eject</code>: The <code>endPos</code> is a final point of a dragged line,
+        the <code>currentPos</code> is a current position of a stone.</li>
+    <pre><code class="java">public class Eject {
+     List eject (List&ltDouble> endPos, List&ltDouble> currentPos, double time) {
+        List&ltDouble> newEndPos = new ArrayList<>(endPos);
+        List&ltDouble> newCurrentPos = new ArrayList<>(currentPos);
+
+        List&ltDouble> res = new ArrayList<>();
+        double difX = newCurrentPos.get(0) - newEndPos.get(0),
+            difY = newCurrentPos.get(1) - newEndPos.get(1);
+        double length = Math.sqrt(difX*difX + difY*difY);
+
+        res.add(newCurrentPos.get(0) + time * difX / length / 10);
+        res.add(newCurrentPos.get(1) + time * difY / length / 10);
+        return res;
+     }
+}
+    </code></pre>
+<p>This is the note used for generating calculation and reminding the parameters.</p>
+    <img src="css/Eject.png" alt="Eject note" width="300" height="300">
+    <li><code>Reflect</code>: The <code>fixPos</code> is a bumped stone position,
+        the <code>startPos</code> is a shooting stone position,
+        and the <code>bumpPos</code> is a collision point.</li>
+    <pre><code class="java">public class Reflect {
+    final double pi = 3.1415926;
+    List reflect(List&ltDouble> fixPos, List&ltDouble> startPos, List&ltDouble> bumpPos, double time) {
+        List&ltDouble> newFixPos = new ArrayList<>(fixPos);
+        List&ltDouble> newStartPos = new ArrayList<>(startPos);
+        List&ltDouble> newBumpPos = new ArrayList<>(bumpPos);
+        List&ltDouble> vecShot = new ArrayList<>();
+        List&ltDouble> vecCon = new ArrayList<>();
+        List&ltDouble> vecRes = new ArrayList<>();
+        vecShot.add(newBumpPos.get(0) - newStartPos.get(0));
+        vecShot.add(newBumpPos.get(1) - newStartPos.get(1));
+        vecCon.add(newFixPos.get(0) - newBumpPos.get(0));
+        vecCon.add(newFixPos.get(1) - newBumpPos.get(1));
+
+        boolean isClockwise = vecShot.get(0) * vecCon.get(1) - vecShot.get(1) * vecCon.get(0) > 0;
+
+        double angleA = (vecShot.get(0) * vecCon.get(0) + vecShot.get(1) * vecCon.get(1)) /
+                (Math.sqrt(vecShot.get(0) * vecShot.get(0) + vecShot.get(1) * vecShot.get(1))
+                *Math.sqrt(vecCon.get(0)* vecCon.get(0) + vecCon.get(1)* vecCon.get(1)));
+        double angleB = pi  - 2 * Math.acos(angleA);
+        angleB = isClockwise == false ? pi * 2 - angleB : angleB;
+        vecRes.add(vecShot.get(0) * Math.cos(angleB) + vecShot.get(1) * Math.sin(angleB));
+        vecRes.add(vecShot.get(1) * Math.cos(angleB) - vecShot.get(0) * Math.sin(angleB));
+        double length = Math.sqrt(vecRes.get(0) * vecRes.get(0) + vecRes.get(1) * vecRes.get(1));
+        vecRes.set(0, newBumpPos.get(0) + time * vecRes.get(0) / length);
+        vecRes.set(1, newBumpPos.get(1) + time * vecRes.get(1) / length);
+        return vecRes;
+    }
+}
+    </code></pre>
+<p>This is the note used for generating calculation and reminding the parameters.</p>
+    <img src="css/Reflect.png" alt="Reflect note" width="300" height="300">
+</ul>
+
+<h2>AI Logic</h2>
+
+<p>AI is made by employing the score system. Each AI stone has each opposite stone's score,
+    and finally, maximum score will be chosen. The calculation is as follows:</p>
+<ol>
+    <li>Calculate expected position after AI stone hit opposite stone for maximum speed. (This game's maximum speed is 2500.0)</li>
+    <li>Calculate gaps between X and Y position of a stone and the border lines. (X - 0, X - 600, Y - 0, Y - 600)</li>
+    <li>Check if the stone is out of the board.</li>
+    <li>If it is, choose the minimum of gaps, give a weight of 100 to it.</li>
+    <li>If not, choose the minimum of gaps, make it a fraction, and give a weight of 10000.</li>
+    <li>Choose the combination of stones having the largest score, and adjust AI speed according to the score.</li>
+</ol>
+
+<pre><code class="java">for (Shape AiStone : whiteStones) {
+    List&ltDouble> thisAiPos = new ArrayList<>();
+    thisAiPos.add(AiStone.getLayoutX());
+    thisAiPos.add(AiStone.getLayoutY());
+    for (Shape playerStone : blackStones) {
+         List&ltDouble> thisPlayerPos = new ArrayList<>();
+         thisPlayerPos.add(playerStone.getLayoutX());
+         thisPlayerPos.add(playerStone.getLayoutY());
+         List&ltDouble> expectVal = ejects.eject(thisAiPos, thisPlayerPos, maxSpeed);
+         List&ltDouble> gap = new ArrayList<>();
+         gap.add(Math.abs(expectVal.get(0) - 0.0));
+         gap.add(Math.abs(expectVal.get(0) - border));
+         gap.add(Math.abs(expectVal.get(1) - 0.0));
+         gap.add(Math.abs(expectVal.get(1) - border));
+
+         if (expectVal.get(0) < 0 || expectVal.get(0) > border ||
+              expectVal.get(1) < 0 || expectVal.get(1) > border) {
+              expectScore.add(100.0 * Collections.min(gap));
+         }
+         else {
+              expectScore.add(10000.0 * 1/Collections.min(gap));
+         }
+         List&ltShape> thisList = new ArrayList<>();
+         thisList.add(AiStone);
+         thisList.add(playerStone);
+         expectStoneLists.add(thisList);
+    }
+}
+if(expectStoneLists.size() > 0) {
+    int maxAt = expectScore.indexOf(Collections.max(expectScore));
+    AiSpeed = Collections.max(expectScore) / 5;
+    AiSpeed = AiSpeed > 2500.0 ? 2500.0 : AiSpeed;
+    ...
+</code></pre>
+<p>AI mode sometimes shows a small bug, however, it is caused by detecting AI stone status, not by employing logic.</p>
+
+</body>
+</html>

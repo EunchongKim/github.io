@@ -1,0 +1,52 @@
+.foreBoard {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.stone {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 3, 0, 0, 0);
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.questions {
+    -fx-font: bold 20px 'cursive';
+    -fx-font-family: "Helvetica";
+    -fx-font-smoothing-type: lcd;
+    -fx-fill: black;
+}
+
+.questionBox {
+    -fx-padding: 5;
+    -fx-background-color: rgba(204, 205, 251, 1);
+    -fx-background-radius: 5;
+    -fx-border-style: solid inside;
+    -fx-border-color: #bac5db;
+}
+
+.selectButton {
+    -fx-padding: 10;
+    -fx-font: bold 15px 'cursive';
+}
+
+.startColor {
+    -fx-background-color: rgba(204, 205, 251, 1);
+}
+
+.title {
+    -fx-font: bold 30px 'cursive';
+    -fx-font-family: "Helvetica";
+    -fx-font-smoothing-type: lcd;
+    -fx-fill: rgba(214, 253, 208, 1);
+}
+
+.startButton {
+    -fx-background-color:
+            #D6FDD0,
+            linear-gradient(#D6FDD0 0%, #C4E1BE 20%, #ADC8AA 80%, #95AD94 100%),
+            linear-gradient(#C4E1BE, #95AD94);
+    -fx-background-insets: 0,5;
+    -fx-background-radius: 100;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 18px;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
