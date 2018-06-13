@@ -1,0 +1,32 @@
+-Features : Combining two things to solve a puzzle, making a puzzle which can be opened only after the previous puzzle opened and allowing noun phrases for things, places, and puzzles.
+
+*Simple play example
+
+You are Alice in the house in Wonderland.
+You can see the weird room.
+You can see the garden through the little door.
+There is a box here.
+> go weird room
+You are in the weird room.
+There is a drink me potion lying on the table.
+There is a golden key lying on the table.
+> take drink me potion
+You pick up the drink me potion
+> take golden key
+You pick up the golden key
+> go house
+You are Alice in the house in Wonderland.
+You can see the weird room.
+You can see the garden through the little door.
+There is a box here.
+> open box
+You open the box.
+You get a bottle of water. Now you can have the potion.
+Try open the little door.
+> open little door
+Your body shrinked.
+You can pass the little door. Go beautiful garden of the Queen.
+> go beautiful garden of the Queen
+You are in the beautiful garden of the Queen.
+
+
