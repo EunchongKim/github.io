@@ -120,7 +120,7 @@ function insertVideo() {
 //Chenxi 5/16 For parsing data
 function parseData() {
     var fs = require('fs');
-    var data = fs.readFileSync("Metrics.csv").toString();
+    var data = fs.readFileSync("Metrics.txt").toString();
 
     var array = data.split("\n");
 
