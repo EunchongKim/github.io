@@ -2,30 +2,29 @@
 
 This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C, the final project called 'Fitness Video Recommendation' could be seen in the local-server website (which will be published with a domain soon) and  details of the previous project in the company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made.
 
-**Table of Contents** 
+## Table of Contents
+* [Fitness Video Recommendation](#fitness-video-recommendation)
+   * [YouTube-8M dataset](#youtube-8m-dataset)
+   * [Website for recommendations](#website-for-recommendations)
+* [Java](#java)
+   * [Pelican Social Life Maker](#pelican-social-life-maker)
+   * [Alggagi](#Alggagi)
+   * [Homemade Database](#homemade-database)
+   * [Stag](#stag)
+   * [Oxo](#oxo)
+* [C](#c)
+   * [HTML to Teletext](#html-to-teletext)
+   * [Binary Search Tree](#binary-search-tree)
+   * [Abstarct Data Type](#abtract-data-type)
+   * [DLA](#dla)
+* [Commercial Search Engine](#commercial-search-engine)
 
-- [Your Portfolio Page](#your-portfolio-page)
-  - [Prerequisites](#prerequisites)
-  - [Overview](#overview)
-    - [Specs](#specs)
-    - [Take Away](#take-away)
-    - [Work Flow](#work-flow)
-    - [Type of App](#type-of-app)
-  - [Intro to CSS](#intro-to-css)
-    - [Padding](#padding)
-    - [Margins](#margins)
-    - [Classes and IDs](#classes-and-ids)
-  - [Setup](#setup)
-  - [Lesson Steps](#lesson-steps)
-    - [TODO 1 : Create Portfolio Page](#todo-1--create-portfolio-page)
-    - [TODO 2 : Add a Title](#todo-2--add-a-title)
-    - [TODO 3 : Add CSS](#todo-3--add-css)
-    - [TODO 4 : Add Navigation](#todo-4--add-navigation)
-      - [The Skinny on Anchor Tags](#the-skinny-on-anchor-tags)
-      - [Relative vs Absolute File Paths](#relative-vs-absolute-file-paths)
-    - [TODO 5 : Create the Main Content](#todo-5--create-the-main-content)
-    - [Checking Your Work](#checking-your-work)
-    - [TODO 6 : Installing the opspark CLI](#todo-6--installing-the-opspark-cli)
-    - [TODO 7 : Initialize your Portfolio](#todo-7--initialize-your-portfolio)
-    - [Extra Credit](#extra-credit)
-    - [Go Live](#go-live)
+## Fitness Video Recommendation
+
+"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising the recommendation lists to users 
+
+ Recommender System (RS) based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS 
+
+ ### YouTube-8M dataset
+
+ ### Website for recommendations
