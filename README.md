@@ -15,8 +15,7 @@ This repo is about the projects what I drive. There are three main sources of th
 * [C](#c)
    * [HTML to Teletext](#html-to-teletext)
    * [Binary Search Tree](#binary-search-tree)
-   * [Abstarct Data Type](#abtract-data-type)
-   * [DLA](#dla)
+   * [Abstarct Data Types](#abtract-data-type)
 * [Commercial Search Engine](#commercial-search-engine)
 
 
@@ -159,6 +158,28 @@ The example of HTML to teletext is as follows:
 
 <img src="https://github.com/EunchongKim/github.io/blob/master/C_teletext/extension/HTMLtoTeletext.png" width="800">
 
+### Binary Search Tree
+
+This C work is to implement 'Binary search tree' from the beginning. Some functions to realise BST such as inserting a new input, checking a whole size and maximum depth of a tree, searching a node, and freeing all the memory are written in C. All the functions are examined with a unit testing. By employing this BST, more functions like a quick spell checking, tree printing, list ordering, rebalancing, threaded trees, and comparison to the perfoemance of Hashing are executed in this work.
+
+The simple dispaly of BST is as below:
+```
+(M(K(I(D(F(G(H))))))(N))
+```
+
+### Abstract Data Types
+
+To understand the concept of Abtract Data Types (ADTs), it makes 'set' including an underlying array ADT. The array could be an integer or string by a definition. This work implements a set from creating a empty set to copying, inserting, removing, and joining two sets together.
+
+
+## Commercial Search Engine
+
+The commercial search engine project I take a charge as a product manager in the previous company is the initial work which is the important attempt to change the company's identity from a traditional financial one to a digital-financial firm. The main goal of this project is developing a service providing abroad shopping sites to Korean users. This product's objective is not just publishing a new service, but also learning and internalising digital-firm properties which are different from the previous many web or app services of financial products.
+
+It starts from setting up a small vertical search engine only for abroad commercial sites by employing Elastic Search and crawling data from those sites and develops NLP to make the search advanced and algorithms to recommend items and sites to users. Finally this application is released this year, could be briefly checked in the website (https://pico.me/home/) and downloaded ([For Apple], [For Android], but not available in English version since its target user is Korean) 
+
+* The detailed whole system structure of 'Commercial Search Engine' project will be updated
+
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
 [Project Data]: https://raw.githubusercontent.com/EunchongKim/github.io/master/Fitness%20Video%20Recommendation/Metrics%202.csv
@@ -172,3 +193,5 @@ The example of HTML to teletext is as follows:
 [Wikipedia about teletext]: https://en.wikipedia.org/wiki/Teletext
 [Colour test card generator]: http://www.bbcbasic.co.uk/tccgen/manual/tcgen2.html
 [The main file of 'HTML to Teletext']: https://github.com/EunchongKim/github.io/blob/master/C_teletext/extension/tele_html.c
+[For Apple]: https://itunes.apple.com/kr/app/id1333452558?mt=8
+[For Android]: https://play.google.com/store/apps/details?id=com.hyundaicard.cse
