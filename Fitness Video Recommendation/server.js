@@ -50,7 +50,6 @@ function start() {
     console.log("Server running at", address);
 }
 
-// chong 5/15, 23:00
 // Serve a request by delivering a file.
 function handle(request, response) {
 
@@ -63,7 +62,6 @@ function handle(request, response) {
     }
     if (url.startsWith("/video.html")) return getVideo(url, response);
 
-    //chenxi 5/21 Parsing data by cookie
     //url is checked
     if (url.startsWith("/prefer_videos")) {
         var cookies = request.headers.cookie.split(";");
@@ -78,7 +76,6 @@ function handle(request, response) {
         }
     }
 
-    //chenxi 5/22 history page
     if (url.startsWith("/history_videos")) {
         return getHistoryVideos(request, response);
     }
@@ -92,7 +89,6 @@ function handle(request, response) {
     function ready(err, content) { deliver(response, type, err, content); }
 }
 
-//chenxi 5/21 cookies
 // videoId[1] === "http://localhost:8080/video.html?" is used to make sure no insidious input
 function writeHistory(request, response){
     var numOfHis = 21;
@@ -115,7 +111,6 @@ function writeHistory(request, response){
     }
 }
 
-//chenxi 5/22
 function writeArrayToCookie(response, videoIdArray) {
     var historyString = videoIdArray[0];
     for (let i = 1; i < videoIdArray.length; i++) {
@@ -126,7 +121,6 @@ function writeArrayToCookie(response, videoIdArray) {
 
 }
 
-//Chenxi 5/22
 function readHistoryFromCookie(request) {
     var cookies = request.headers.cookie.split(";");
     var historyString;
@@ -141,7 +135,6 @@ function readHistoryFromCookie(request) {
     return videoIdArray;
 }
 
-//chenxi 5/22
 function isHistoryContains(videoIdArray, videoId) {
     for (var i = 0; i < videoIdArray.length; i++) {
         if (videoIdArray[i] === videoId) {
@@ -150,9 +143,6 @@ function isHistoryContains(videoIdArray, videoId) {
     }
     return false;
 }
-
-//************************************
-//Chenxi 5/22
 
 //get history videos and send it to front end
 function getHistoryVideos(request, response) {
@@ -186,10 +176,6 @@ async function getHistoryData(text, response, historyVideoArray) {
     }
 }
 
-//end
-//************************************
-
-// chong 5/15, 23:00
 // Main page with videos
 function getMain(response, preIndex) {
     fs.readFile("./videomain.html", ready);
@@ -236,8 +222,6 @@ function getMainData(text, response, preIndex) {
     });
 }
 
-// Chenxi 5/22
-// Chong 5/16, 22:30
 // Return page with inserting data from the database
 function prepareMain(data, page, parts, response, dbpos, end, videoNum) {
     var pos = (dbpos % 3 == 1) ? 8 : (dbpos % 3 == 2) ? 15 : 1;
@@ -257,7 +241,6 @@ function prepareMain(data, page, parts, response, dbpos, end, videoNum) {
     return page;
 }
 
-// chong 5/16, 17:30
 // To make second page showing individual video players + playlists
 function getVideo(url, response) {
     fs.readFile("./video.html", ready);
@@ -266,9 +249,7 @@ function getVideo(url, response) {
     }
 }
 
-// chong 5/16, 23:00
 // Display other all videos (needs to be modified later) as the playlist
-// chong 5/21, 00:00 (korea)
 // Changed playlists according to similarity between videos
 function getData(text, url, response) {
     var mainlabel;
@@ -309,7 +290,6 @@ function readyVideo(data, page, textparts) {
     return page;
 }
 
-// chong 5/16, 17:30
 function prepare(data, textparts, page, response, dbsize) {
     var pos = 5;
     page = page + textparts[pos] + data.id + textparts[pos+1] + data.id +
@@ -441,7 +421,7 @@ function similarity(preIndex, videoIndex) {
     return numOfSame;
 }
 
-//rank videos, chenxi
+//rank videos
 function rankVideo(preIndex, videoIndex, videoAddress) {
     var videoLib = new Array(18);
     for (var i = 0; i < 18 ; i++) {
@@ -454,7 +434,7 @@ function rankVideo(preIndex, videoIndex, videoAddress) {
     return videoLib;
 }
 
-//check is number, chenxi
+//check is number
 function isNumber(val){
     return typeof val === 'number' && isFinite(val);
 }
