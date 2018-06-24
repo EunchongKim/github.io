@@ -21,7 +21,7 @@ This repo is about the projects what I drive. There are three main sources of th
 
 ## Fitness Video Recommendation
 
-"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS.
+"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS. This project is currently planning to submit to the Health RecSys Conference 2018 from the suggestion of the supervisor (https://recsys.acm.org/recsys18/healthrecsys/)
 
  ### YouTube-8M dataset
  
@@ -39,4 +39,10 @@ KV4QjezmHBI,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 
  ### Website for recommendations
  
- This RS project is also built in the website. (https://159.65.28.157:8080/, the connection is not stable due to the frequent changes) 
+This RS project is also built in the website. (https://159.65.28.157:8080/, the connection is not stable due to the frequent changes) When a user enters, she/he could choose their preferences with 17 labels. After the preference choice, top 102 videos are shown by calculating the similarity between the user preference and video labels. If a specific video is clicked, the user can watch the video and related videos follow.
+
+The system structure of this project is as follows:
+<img src=https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/SystemStructure_FitnessRecSys.png>
+
+The overall process of the recommendation system and website is like:
+<img src=https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/OverallProcess_FitnessRecSys.png>
