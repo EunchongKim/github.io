@@ -87,7 +87,7 @@ The homemade database system development literally means making the database str
 
 The functions and interface are borrowed from MySQL and MariaDB. The functions I developed are 'insert', 'select', 'delete', 'update', 'database constraints', 'catalogs', 'transactions', and 'journals'. All this functions are realised in the command window by analysing the real MySQL queries and parsing them.
 
-This is example of playing this system:
+This is the example of playing this system:
 ```
 HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (1, Fido, dog, ab123);
 Insert time (0.001 sec)
@@ -104,6 +104,9 @@ Select time (0.007 sec)
 Query OK (0.011 sec)
 ```
 
+### Stag
+
+Stag is the abbreviations of 'Simple Text Adventure Game'. Not just to develop this game, but to make the structure efficient, understanding about 'Objective Oriented' design of Java, especially for getting used to exploit each object as components.
 
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
