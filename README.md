@@ -21,10 +21,10 @@ This repo is about the projects what I drive. There are three main sources of th
 
 ## Fitness Video Recommendation
 
-"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising the recommendation lists to users 
-
- Recommender System (RS) based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS 
+"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS.
 
  ### YouTube-8M dataset
+ 
+ The data of this project exploits YouTube-8M (https://research.google.com/youtube8m/)
 
  ### Website for recommendations
