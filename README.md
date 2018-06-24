@@ -149,7 +149,15 @@ This is the AI & Graphic version of the game:
 * [Oxo with AI & Graphic]
 
 
-## 
+## C
+
+### HTML to Teletext
+
+Teletext is "a television information retrieval service created in the United Kingdom in the early 1970s". [Wikipedia about teletext] This project based on SDL of C is to firstly make the conversion program to change M7 file to teletext gif file by interpreting a 'control code', (like [Colour test card generator]) and extend it to automatically generate HTML file from teletext file. The later work demands dozens of 'parsing' to split HTML tags as needed, convert them to M7 code, and finally change it to teletext file. ([The main file of 'HTML to Teletext']) Furthermore, as a part of this work, thoroughful unit testing was done for the basic conversion program of teletext.
+
+The example of HTML to teletext is as follows:
+
+<img src="https://github.com/EunchongKim/github.io/blob/master/C_teletext/extension/HTMLtoTeletext.png" width="800">
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
@@ -161,3 +169,6 @@ This is the AI & Graphic version of the game:
 [Pelican Social Life Maker]: https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Pelican%20Social%20Life%20Maker.jar
 [Alggagi Game]: https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Java_Alggagi.jar
 [Oxo with AI & Graphic]: https://github.com/EunchongKim/github.io/blob/master/Java_Oxo/OXO_EXTENSION/out/artifacts/OXO_EXTENSION_jar/OXO_EXTENSION.jar
+[Wikipedia about teletext]: https://en.wikipedia.org/wiki/Teletext
+[Colour test card generator]: http://www.bbcbasic.co.uk/tccgen/manual/tcgen2.html
+[The main file of 'HTML to Teletext']: https://github.com/EunchongKim/github.io/blob/master/C_teletext/extension/tele_html.c
