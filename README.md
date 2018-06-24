@@ -15,7 +15,7 @@ This repo is about the projects what I drive. There are three main sources of th
 * [C](#c)
    * [HTML to Teletext](#html-to-teletext)
    * [Binary Search Tree](#binary-search-tree)
-   * [Abstract Data Types](#abtract-data-type)
+   * [Abstract Data Types](#abstract-data-types)
 * [Commercial Search Engine](#commercial-search-engine)
 
 
