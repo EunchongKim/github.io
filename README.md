@@ -8,7 +8,7 @@ This repo is about the projects what I drive. There are three main sources of th
    * [Website for recommendations](#website-for-recommendations)
 * [Java](#java)
    * [Pelican Social Life Maker](#pelican-social-life-maker)
-   * [Alggagi](#Alggagi)
+   * [Alggagi](#alggagi)
    * [Homemade Database](#homemade-database)
    * [Stag](#stag)
    * [Oxo](#oxo)
@@ -19,11 +19,12 @@ This repo is about the projects what I drive. There are three main sources of th
    * [DLA](#dla)
 * [Commercial Search Engine](#commercial-search-engine)
 
+
 ## Fitness Video Recommendation
 
 "'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS. This project is currently planning to submit to the Health RecSys Conference 2018 from the suggestion of the supervisor. ([Health RecSys 2018])
 
- ### YouTube-8M dataset
+### YouTube-8M dataset
  
 The data of this project exploits YouTube-8M dataset. ([YouTube-8M]) Among millions of labeled-video data of YouTube-8m, 17 labels focusing on fitness are selected and employed. The rawdata provided by TenserFlow is trained and validated by the basic logistics model to get the proper labels for each video. After this process, videos have multi-labels to calculate their similarity distance. This file is the processed video data ([Project Data]):
 
@@ -37,7 +38,7 @@ JVpsrTcL-bk,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
 KV4QjezmHBI,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 ```
 
- ### Website for recommendations
+### Website for recommendations
  
 This RS project is also built in the website. ([Fitness Video Recommendation], the connection is not stable due to the frequent changes) When a user enters, she/he could choose their preferences with 17 labels. After the preference choice, top 102 videos are shown by calculating the similarity between the user preference and video labels. If a specific video is clicked, the user can watch the video and related videos follow.
 
@@ -139,6 +140,12 @@ Try open the little door.
 ...
 ```
 
+### Oxo
+
+Oxo, also called noughts and crosses or tic-tac-toe, is a simple and basic game. To make it with a object-oriented design, there are four classes 'Board' deciding moves, game turns, and wins, 'Display' printing a game status and receiving a user input, 'Symbol' which is a simple enumerated type class representing 'X' and 'O' symbols, and 'Oxo' controlling all the classes.
+
+
+## 
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
