@@ -184,12 +184,12 @@ It starts from setting up a small vertical search engine only for abroad commerc
 [YouTube-8M]: https://research.google.com/youtube8m/
 [Project Data]: https://raw.githubusercontent.com/EunchongKim/github.io/master/Fitness%20Video%20Recommendation/Metrics%202.csv
 [Fitness Video Recommendation]: https://159.65.28.157:8080/
-[Index Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/indexpage.mov
-[Main Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/mainpage.mov
-[Video Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/secondpage.mov
-[Pelican Social Life Maker]: https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Pelican%20Social%20Life%20Maker.jar
-[Alggagi Game]: https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Java_Alggagi.jar
-[Oxo with AI & Graphic]: https://github.com/EunchongKim/github.io/blob/master/Java_Oxo/OXO_EXTENSION/out/artifacts/OXO_EXTENSION_jar/OXO_EXTENSION.jar
+[Index Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/indexpage.mov?raw=true
+[Main Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/mainpage.mov?raw=true
+[Video Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/secondpage.mov?raw=true
+[Pelican Social Life Maker]: https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Pelican%20Social%20Life%20Maker.jar?raw=true
+[Alggagi Game]: https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Java_Alggagi.jar?raw=true
+[Oxo with AI & Graphic]: https://github.com/EunchongKim/github.io/blob/master/Java_Oxo/OXO_EXTENSION/out/artifacts/OXO_EXTENSION_jar/OXO_EXTENSION.jar?raw=true
 [Wikipedia about teletext]: https://en.wikipedia.org/wiki/Teletext
 [Colour test card generator]: http://www.bbcbasic.co.uk/tccgen/manual/tcgen2.html
 [The main file of 'HTML to Teletext']: https://github.com/EunchongKim/github.io/blob/master/C_teletext/extension/tele_html.c
