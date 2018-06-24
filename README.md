@@ -15,7 +15,7 @@ This repo is about the projects what I drive. There are three main sources of th
 * [C](#c)
    * [HTML to Teletext](#html-to-teletext)
    * [Binary Search Tree](#binary-search-tree)
-   * [Abstarct Data Types](#abtract-data-type)
+   * [Abstract Data Types](#abtract-data-type)
 * [Commercial Search Engine](#commercial-search-engine)
 
 
@@ -55,7 +55,7 @@ The demo-playing of websites per page can be shown:
 
 ## Java
 
-There are five products written by Java: Pelican Social Life Maker, Alggagi, Homemade Database, Stag and Oxo. These projects deploy Java and sometimes JavaFX. 'Pelican Social Life Maker' is a basically group project, however, I devoted the most effort as the team leader from deciding the game concept to developing the game with JavaFX. Other four are the individual products which all hit the highest result of the course.
+There are five products written in Java: Pelican Social Life Maker, Alggagi, Homemade Database, Stag and Oxo. These projects deploy Java and sometimes JavaFX. 'Pelican Social Life Maker' is basically a group project, however, I devoted the most effort as the team leader from deciding the game concept to developing the game with JavaFX. Other four are the individual products which all hit the highest result of the course.
 
 ### Pelican Social Life Maker
 
@@ -81,15 +81,15 @@ This game provides two modes of play, AI Play Mode and Self Play Mode.
 AI Play Mode: Playing with AI. Black stones are player's ones as the first turn.
 Self Play Mode: Playing both stones. All stones are controllable.
 ```
-The excutable file is as below:
+The executable file is as below:
 
 * [Alggagi Game]
 
 ### Homemade Database
 
-The homemade database system development literally means making the database structure and system from the very small unit only by employing Java. The objective of this work is to gain experience of incremental development, including refactoring as well as unit testing, consequently, it starts with the basic unit, one line of data called 'Record' then develops to 'Table', 'Database' and 'Query', which makes the user interface in the command window. The operations of the database system are based on 'TreeMap' considering a time complexity, memory consumption, and natural order.
+The homemade database system development literally means making the database structure and system from the very small unit only by employing Java. The objective of this work is to gain experience in an incremental development, including refactoring as well as unit testing, consequently, it starts with the basic unit, one line of data called 'Record' then develops to 'Table', 'Database' and 'Query', which makes the user interface in the command window. The operations of the database system are based on 'TreeMap' considering a time complexity, memory consumption, and natural order.
 
-The functions and interface are borrowed from MySQL and MariaDB. The functions I developed are 'insert', 'select', 'delete', 'update', 'database constraints', 'catalogs', 'transactions', and 'journals'. All this functions are realised in the command window by analysing the real MySQL queries and parsing them.
+The functions and interface are borrowed from MySQL and MariaDB. The functions I developed are 'insert', 'select', 'delete', 'update', 'database constraints', 'catalogs', 'transactions', and 'journals'. All these functions are realised in the command window by analysing the real MySQL queries and parsing them.
 
 This is the example of playing this system:
 ```
@@ -152,7 +152,7 @@ This is the AI & Graphic version of the game:
 
 ### HTML to Teletext
 
-Teletext is "a television information retrieval service created in the United Kingdom in the early 1970s". [Wikipedia about teletext] This project based on SDL of C is to firstly make the conversion program to change M7 file to teletext gif file by interpreting a 'control code', (like [Colour test card generator]) and extend it to automatically generate HTML file from teletext file. The later work demands dozens of 'parsing' to split HTML tags as needed, convert them to M7 code, and finally change it to teletext file. ([The main file of 'HTML to Teletext']) Furthermore, as a part of this work, thoroughful unit testing was done for the basic conversion program of teletext.
+Teletext is "a television information retrieval service created in the United Kingdom in the early 1970s". [Wikipedia about teletext] This project based on SDL of C is to firstly make the conversion program to change M7 file to teletext gif file by interpreting a 'control code', (like [Colour test card generator]) and extend it to automatically generate HTML file from teletext file. The later work demands dozens of 'parsing' to split HTML tags as needed, convert them to M7 code, and finally change it to teletext file. ([The main file of 'HTML to Teletext']) Furthermore, as a part of this work, thorough unit testing was done for the basic conversion program of teletext.
 
 The example of HTML to teletext is as follows:
 
@@ -160,23 +160,23 @@ The example of HTML to teletext is as follows:
 
 ### Binary Search Tree
 
-This C work is to implement 'Binary search tree' from the beginning. Some functions to realise BST such as inserting a new input, checking a whole size and maximum depth of a tree, searching a node, and freeing all the memory are written in C. All the functions are examined with a unit testing. By employing this BST, more functions like a quick spell checking, tree printing, list ordering, rebalancing, threaded trees, and comparison to the perfoemance of Hashing are executed in this work.
+This C work is to implement 'Binary search tree' from the beginning. Some functions to realise BST such as inserting a new input, checking a whole size and maximum depth of a tree, searching a node, and freeing all the memory are written in C. All the functions are examined with a unit testing. By employing this BST, more functions like a quick spell checking, tree printing, list ordering, rebalancing, threaded trees, and comparison to the performance of Hashing are executed in this work.
 
-The simple dispaly of BST is as below:
+The simple display of BST is as below:
 ```
 (M(K(I(D(F(G(H))))))(N))
 ```
 
 ### Abstract Data Types
 
-To understand the concept of Abtract Data Types (ADTs), it makes 'set' including an underlying array ADT. The array could be an integer or string by a definition. This work implements a set from creating a empty set to copying, inserting, removing, and joining two sets together.
+To understand the concept of Abstract Data Types (ADTs), it makes 'set' including an underlying array ADT. The array could be an integer or string by a definition. This work implements a set from creating an empty set to copying, inserting, removing, and joining two sets together.
 
 
 ## Commercial Search Engine
 
 The commercial search engine project I take a charge as a product manager in the previous company is the initial work which is the important attempt to change the company's identity from a traditional financial one to a digital-financial firm. The main goal of this project is developing a service providing abroad shopping sites to Korean users. This product's objective is not just publishing a new service, but also learning and internalising digital-firm properties which are different from the previous many web or app services of financial products.
 
-It starts from setting up a small vertical search engine only for abroad commercial sites by employing Elastic Search and crawling data from those sites and develops NLP to make the search advanced and algorithms to recommend items and sites to users. Finally this application is released this year, could be briefly checked in the website (https://pico.me/home/) and downloaded ([For Apple], [For Android], but not available in English version since its target user is Korean) 
+It starts from setting up a small vertical search engine only for abroad commercial sites by employing Elastic Search and crawling data from those sites and develops NLP to make the search advanced and algorithms to recommend items and sites to users. Finally, this application is released this year, could be briefly checked in the website (https://pico.me/home/) and downloaded ([For Apple], [For Android], but not available in English version since its target user is Korean) 
 
 * The detailed whole system structure of 'Commercial Search Engine' project will be updated
 
