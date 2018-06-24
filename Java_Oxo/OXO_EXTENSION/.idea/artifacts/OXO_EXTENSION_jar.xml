@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OXO_EXTENSION:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OXO_EXTENSION_jar</output-path>
+    <root id="archive" name="OXO_EXTENSION.jar">
+      <element id="module-output" name="OXO_EXTENSION" />
+    </root>
+  </artifact>
+</component>
