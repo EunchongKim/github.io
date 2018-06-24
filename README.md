@@ -4,8 +4,8 @@ This repo is about the projects what I drive. There are three main sources of th
 
 ## Table of Contents
 * [Fitness Video Recommendation](#fitness-video-recommendation)
-   * [YouTube-8M dataset](#youtube-8m-dataset)
-   * [Website for recommendations](#website-for-recommendations)
+   * [YouTube-8M Dataset](#youtube-8m-dataset)
+   * [Website for Recommendations](#website-for-recommendations)
 * [Java](#java)
    * [Pelican Social Life Maker](#pelican-social-life-maker)
    * [Alggagi](#alggagi)
@@ -24,7 +24,7 @@ This repo is about the projects what I drive. There are three main sources of th
 
 "'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS. This project is currently planning to submit to the Health RecSys Conference 2018 from the suggestion of the supervisor. ([Health RecSys 2018])
 
-### YouTube-8M dataset
+### YouTube-8M Dataset
  
 The data of this project exploits YouTube-8M dataset. ([YouTube-8M]) Among millions of labeled-video data of YouTube-8m, 17 labels focusing on fitness are selected and employed. The rawdata provided by TenserFlow is trained and validated by the basic logistics model to get the proper labels for each video. After this process, videos have multi-labels to calculate their similarity distance. This file is the processed video data ([Project Data]):
 
@@ -38,7 +38,7 @@ JVpsrTcL-bk,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
 KV4QjezmHBI,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 ```
 
-### Website for recommendations
+### Website for Recommendations
  
 This RS project is also built in the website. ([Fitness Video Recommendation], the connection is not stable due to the frequent changes) When a user enters, she/he could choose their preferences with 17 labels. After the preference choice, top 102 videos are shown by calculating the similarity between the user preference and video labels. If a specific video is clicked, the user can watch the video and related videos follow.
 
