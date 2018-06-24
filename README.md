@@ -1,6 +1,6 @@
 # Lists of Key Projects
 
-This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C, the final project called 'Fitness Video Recommendation' could be seen in the local-server website (which will be published with a domain soon) and  details of the previous project in the company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made.
+This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C. The final project called 'Fitness Video Recommendation' could be seen in the published website. The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made at the end of this page.
 
 ## Table of Contents
 * [Fitness Video Recommendation](#fitness-video-recommendation)
