@@ -1,0 +1,24 @@
+There are two extensions to be executed.
+
+1. Threaded Trees
+
+ 1.1. Execution
+   - 'make all' or 'make testthreaded'
+   - bst_thr.c, testthreaded.c
+ 1.2. Explanation
+   - Main function is 'void bst_threaded(bst* b, void* v).'
+   - Threaded Trees are the structure which is generally used for making Inorder Traversal efficient, so switch 'bst_getordered function to 'bst_threaded.'
+   - Using threaded trees, space complexity will be constant, O(1) while Inorder Traversal has O(n).
+   - The flow of algorithms of it is in 'node_threaded' function in 'bst_thr.c'
+ 1.3. Test
+   - In 'testthreaded.c', check if the integer array and the char array are get ordered using the threaded structure.
+
+2. Comparing your spell checker performance with hashing\
+
+ 2.1. Execution
+   - 'make all' or 'make hash eng_370k_shuffle.txt heart_darkness.txt'
+   - hash.c
+ 2.2. Explanation
+   - Using the binary search tree to check the misspellings needs time complexity of O(log n), but it will be reduced to O(1) when using 'Hashing.'
+   - Using the Modified Bernstein hashing, generate hash numbers.
+   - The runtime of BST to check spell usually takes a time of 0.0x while the runtime of Hash usually takes a time of 0.00x.
