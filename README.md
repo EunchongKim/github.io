@@ -69,7 +69,7 @@ The whole structure of this game is as follows:
 
 ### Alggagi
 
-This game is using the board and the stones of the traditional 'Go' game, however, exploiting a deceptively simple way of playing. By clicking a stone and dragging a line where a user wants, a stone will be bounced off according to the direction and the time. The objective of the game is to make all the opposite colour stones out of the board.
+This game is using the board and the stones of the traditional 'Go' game, however, exploiting a deceptively simple way of playing. By clicking a stone and dragging a line where a user wants, a stone will be bounced off according to the direction and the time. The objective of the game is to make all the opposite colour stones out of the board. In this game development, the collision check is invented from scratch with a unit testing.
 
 This game provides two modes of play, AI Play Mode and Self Play Mode.
 
@@ -77,10 +77,34 @@ This game provides two modes of play, AI Play Mode and Self Play Mode.
 AI Play Mode: Playing with AI. Black stones are player's ones as the first turn.
 Self Play Mode: Playing both stones. All stones are controllable.
 ```
-
 The excutable file is as below:
 
 * [Alggagi Game]
+
+### Homemade Database
+
+The homemade database system development literally means making the database structure and system from the very small unit only by employing Java. The objective of this work is to gain experience of incremental development, including refactoring as well as unit testing, consequently, it starts with the basic unit, one line of data called 'Record' then develops to 'Table', 'Database' and 'Query', which makes the user interface in the command window. The operations of the database system are based on 'TreeMap' considering a time complexity, memory consumption, and natural order.
+
+The functions and interface are borrowed from MySQL and MariaDB. The functions I developed are 'insert', 'select', 'delete', 'update', 'database constraints', 'catalogs', 'transactions', and 'journals'. All this functions are realised in the command window by analysing the real MySQL queries and parsing them.
+
+This is example of playing this system:
+```
+HomeDB [test]> INSERT INTO Animal (Id, Name, Kind, Owner) VALUES (1, Fido, dog, ab123);
+Insert time (0.001 sec)
+Query OK (0.001 sec)
+
+HomeDB [test]> SELECT * FROM Animal WHERE Owner=ab123;
+Select time (0.007 sec)
++----+----------+------+-------+
+| Id | Name     | Kind | Owner |
++----+----------+------+-------+
+| 1  | Fido     | dog  | ab123 |
+| 3  | Garfield | cat  | ab123 |
++----+----------+------+-------+
+Query OK (0.011 sec)
+```
+
+
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
