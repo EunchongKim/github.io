@@ -144,6 +144,10 @@ Try open the little door.
 
 Oxo, also called noughts and crosses or tic-tac-toe, is a simple and basic game. To make it with a object-oriented design, there are four classes 'Board' deciding moves, game turns, and wins, 'Display' printing a game status and receiving a user input, 'Symbol' which is a simple enumerated type class representing 'X' and 'O' symbols, and 'Oxo' controlling all the classes.
 
+This is the AI & Graphic version of the game:
+
+* [Oxo with AI & Graphic]
+
 
 ## 
 
@@ -156,3 +160,4 @@ Oxo, also called noughts and crosses or tic-tac-toe, is a simple and basic game.
 [Video Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/secondpage.mov
 [Pelican Social Life Maker]: https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Pelican%20Social%20Life%20Maker.jar
 [Alggagi Game]: https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Java_Alggagi.jar
+[Oxo with AI & Graphic]: https://github.com/EunchongKim/github.io/blob/master/Java_Oxo/OXO_EXTENSION/out/artifacts/OXO_EXTENSION_jar/OXO_EXTENSION.jar
