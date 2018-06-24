@@ -71,6 +71,10 @@ The whole structure of this game is as follows:
 
 This game is using the board and the stones of the traditional 'Go' game, however, exploiting a deceptively simple way of playing. By clicking a stone and dragging a line where a user wants, a stone will be bounced off according to the direction and the time. The objective of the game is to make all the opposite colour stones out of the board. In this game development, the collision check is invented from scratch with a unit testing.
 
+The game looks like:
+
+<img src="https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Alggagi.png" width="800">
+
 This game provides two modes of play, AI Play Mode and Self Play Mode.
 
 ```
@@ -106,7 +110,34 @@ Query OK (0.011 sec)
 
 ### Stag
 
-Stag is the abbreviations of 'Simple Text Adventure Game'. Not just to develop this game, but to make the structure efficient, understanding about 'Objective Oriented' design of Java, especially for getting used to exploit each object as components.
+Stag is the abbreviation of 'Simple Text Adventure Game'. Not just to develop this game, but to make the structure efficient, understanding about 'Objective Oriented' design of Java, especially for getting used to exploit each object as components. The general structural concept of this game is setting 'place', 'thing', and 'puzzle' to make a user wander around places, gather things, and solve puzzles to go to the next step. Naturally, each component has each class and the current status is shared by deploying 'Entity' class with inheritance.
+
+The example of this game (Alice in Wonderland ver.) is as below:
+
+```
+You are Alice in the house in Wonderland.
+You can see the weird room.
+You can see the garden through the little door.
+There is a box here.
+> go weird room
+You are in the weird room.
+There is a drink me potion lying on the table.
+There is a golden key lying on the table.
+> take drink me potion
+You pick up the drink me potion
+> take golden key
+You pick up the golden key
+> go house
+You are Alice in the house in Wonderland.
+You can see the weird room.
+You can see the garden through the little door.
+There is a box here.
+> open box
+You open the box.
+You get a bottle of water. Now you can have the potion.
+Try open the little door.
+...
+```
 
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
