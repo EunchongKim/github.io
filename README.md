@@ -57,8 +57,30 @@ The demo-playing of websites per page can be shown:
 
 There are five products written by Java: Pelican Social Life Maker, Alggagi, Homemade Database, Stag and Oxo. These projects deploy Java and sometimes JavaFX. 'Pelican Social Life Maker' is a basically group project, however, I devoted the most effort as the team leader from deciding the game concept to developing the game with JavaFX. Other four are the individual products which all hit the highest result of the course.
 
+### Pelican Social Life Maker
 
+This game is to teach children about the danger and right use of Social Network by make them grow the pelican character in the virtual 'Pelibook' world. A user can learn 1. making a safe password 2. managing her/his social life well from this game. This game's general objective is to make the pelican character happy with keeping 'Popularity' and 'Wellness' high by choosing the right choice of the event pages. This game could be played with this executable jar file:
 
+* [Pelican Social Life Maker]
+
+The whole structure of this game is as follows:
+
+<img src="https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Code%20Structure.png" width="350" height="250">
+
+### Alggagi
+
+This game is using the board and the stones of the traditional 'Go' game, however, exploiting a deceptively simple way of playing. By clicking a stone and dragging a line where a user wants, a stone will be bounced off according to the direction and the time. The objective of the game is to make all the opposite colour stones out of the board.
+
+This game provides two modes of play, AI Play Mode and Self Play Mode.
+
+```
+AI Play Mode: Playing with AI. Black stones are player's ones as the first turn.
+Self Play Mode: Playing both stones. All stones are controllable.
+```
+
+The excutable file is as below:
+
+* [Alggagi]
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
@@ -67,3 +89,5 @@ There are five products written by Java: Pelican Social Life Maker, Alggagi, Hom
 [Index Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/indexpage.mov
 [Main Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/mainpage.mov
 [Video Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/secondpage.mov
+[Pelican Social Life Maker]: https://github.com/EunchongKim/github.io/blob/master/PelicanSLM/Pelican%20Social%20Life%20Maker.jar
+[Alggagi]: https://github.com/EunchongKim/github.io/blob/master/Java_Alggagi/Java_Alggagi.jar
