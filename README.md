@@ -38,8 +38,8 @@ KV4QjezmHBI,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 ```
 
 ### Website for Recommendations
- 
-This RS project is also built in the website. ([Fitness Video Recommendation], the connection is not stable due to the frequent changes) When a user enters, she/he could choose their preferences with 17 labels. After the preference choice, top 102 videos are shown by calculating the similarity between the user preference and video labels. If a specific video is clicked, the user can watch the video and related videos follow.
+
+This RS project is also built in the website. ([Fitness Video Recommendation], This website is based on the pair web technology project, and developed more to apply the real RS. The connection is not stable due to the frequent changes) When a user enters, she/he could choose their preferences with 17 labels. After the preference choice, top 102 videos are shown by calculating the similarity between the user preference and video labels. If a specific video is clicked, the user can watch the video and related videos follow.
 
 The system structure of this project is as follows:
 <img src=https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/SystemStructure_FitnessRecSys.png width="600" height="300">
