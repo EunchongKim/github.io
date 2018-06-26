@@ -183,7 +183,7 @@ It starts from setting up a small vertical search engine only for abroad commerc
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
 [Project Data]: https://raw.githubusercontent.com/EunchongKim/github.io/master/Fitness%20Video%20Recommendation/Metrics%202.csv
-[Fitness Video Recommendation]: https://159.65.28.157:8080/
+[Fitness Video Recommendation]: https://159.65.28.157:8090/
 [Index Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/indexpage.mov?raw=true
 [Main Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/mainpage.mov?raw=true
 [Video Page]: https://github.com/EunchongKim/github.io/blob/master/Fitness%20Video%20Recommendation/report/secondpage.mov?raw=true
