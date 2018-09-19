@@ -1,6 +1,6 @@
 # Lists of Key Projects
 
-This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C. The final project called 'Fitness Video Recommendation' could be seen in the published website. The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made at the end of this page.
+This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C. The paper based on the final project called 'Fitness Video Recommendation' was ACCEPTED by the HealthRecSys '18 ([Health RecSys 2018]). The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made at the end of this page.
 
 ## Table of Contents
 * [Fitness Video Recommendation](#fitness-video-recommendation)
@@ -21,7 +21,7 @@ This repo is about the projects what I drive. There are three main sources of th
 
 ## Fitness Video Recommendation
 
-"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS. This project is currently planning to submit to the Health RecSys Conference 2018 from the suggestion of the supervisor. ([Health RecSys 2018])
+"'Fitness that fits': Recommending Physical Exercise Videos Based on User Preferences" is the project realising recommendation lists of YouTube fitness videos to users by employing Recommender System (RS). RS algorithms are based on Hybrid RS, the combination of Content-based RS and Collaborative Filtering RS. This project is accepted by the Health RecSys Conference 2018. ([Health RecSys 2018])
 
 ### YouTube-8M Dataset
  
