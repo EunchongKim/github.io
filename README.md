@@ -1,6 +1,6 @@
 # Lists of Key Projects
 
-This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C. The paper based on the final project called 'Fitness Video Recommendation' was ACCEPTED by the HealthRecSys '18 ([Health RecSys 2018]). The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made at the end of this page.
+This repo is about the projects what I drive. There are three main sources of them: Previous working experience, final thesis and course works in Master degree. The paper based on the final project called 'Fitness Video Recommendation' was ACCEPTED by the HealthRecSys '18 ([Health RecSys 2018]). The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole architecture design paper what I made.
 
 ## Table of Contents
 * [Commercial Search Engine](#commercial-search-engine)
