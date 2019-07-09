@@ -3,6 +3,7 @@
 This repo is about the projects what I drive. There are three main sources of them: Course works, final thesis and previous working experience. The course works are generally based on Java and C. The paper based on the final project called 'Fitness Video Recommendation' was ACCEPTED by the HealthRecSys '18 ([Health RecSys 2018]). The details of the project in the previous company cannot be revealed in the public area because of a confidential reason, but it could be checked in the official website (https://pico.me/home/) and the whole structure design paper what I made at the end of this page.
 
 ## Table of Contents
+* [Commercial Search Engine](#commercial-search-engine)
 * [Fitness Video Recommendation](#fitness-video-recommendation)
    * [YouTube-8M Dataset](#youtube-8m-dataset)
    * [Website for Recommendations](#website-for-recommendations)
@@ -16,7 +17,17 @@ This repo is about the projects what I drive. There are three main sources of th
    * [HTML to Teletext](#html-to-teletext)
    * [Binary Search Tree](#binary-search-tree)
    * [Abstract Data Types](#abstract-data-types)
-* [Commercial Search Engine](#commercial-search-engine)
+
+
+## Commercial Search Engine
+
+The commercial search engine project I take a charge as a product manager in the previous company is the initial work which is the important attempt to change the company's identity from a traditional financial one to a digital-financial firm. The main goal of this project is developing a service providing abroad shopping sites to Korean users. This product's objective is not just publishing a new service, but also learning and internalising digital-firm properties which are different from the previous many web or app services of financial products.
+
+It starts from setting up a small vertical search engine only for abroad commercial sites by employing Elastic Search and crawling data from those sites and develops NLP to make the search advanced and algorithms to recommend items and sites to users. Finally, this application is released this year, could be briefly checked in the website (https://pico.me/home/) and downloaded ([For Apple], [For Android], but not available in English version since its target user is Korean) 
+
+As an application architect, I planned, drew and realised the architecture map below.
+
+
 
 
 ## Fitness Video Recommendation
@@ -171,14 +182,6 @@ The simple display of BST is as below:
 
 To understand the concept of Abstract Data Types (ADTs), it makes 'set' including an underlying array ADT. The array could be an integer or string by a definition. This work implements a set from creating an empty set to copying, inserting, removing, and joining two sets together.
 
-
-## Commercial Search Engine
-
-The commercial search engine project I take a charge as a product manager in the previous company is the initial work which is the important attempt to change the company's identity from a traditional financial one to a digital-financial firm. The main goal of this project is developing a service providing abroad shopping sites to Korean users. This product's objective is not just publishing a new service, but also learning and internalising digital-firm properties which are different from the previous many web or app services of financial products.
-
-It starts from setting up a small vertical search engine only for abroad commercial sites by employing Elastic Search and crawling data from those sites and develops NLP to make the search advanced and algorithms to recommend items and sites to users. Finally, this application is released this year, could be briefly checked in the website (https://pico.me/home/) and downloaded ([For Apple], [For Android], but not available in English version since its target user is Korean) 
-
-* The detailed whole system structure of 'Commercial Search Engine' project will be updated
 
 [Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
 [YouTube-8M]: https://research.google.com/youtube8m/
