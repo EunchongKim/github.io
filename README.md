@@ -27,7 +27,7 @@ It starts from setting up a small vertical search engine only for abroad commerc
 
 As an application architect, I planned, drew and realised the architecture map below.
 
-<img src="https://github.com/EunchongKim/github.io/blob/master/PICO_Commercial%20Search%20Engine%20Project/ArchitectureMap.png" width="200" height="400">
+<img src="https://github.com/EunchongKim/github.io/blob/master/PICO_Commercial%20Search%20Engine%20Project/ArchitectureMap.png" width="400" height="500">
 
 
 ## Fitness Video Recommendation
