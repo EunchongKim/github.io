@@ -183,7 +183,7 @@ The simple display of BST is as below:
 To understand the concept of Abstract Data Types (ADTs), it makes 'set' including an underlying array ADT. The array could be an integer or string by a definition. This work implements a set from creating an empty set to copying, inserting, removing, and joining two sets together.
 
 
-[Health RecSys 2018]: https://recsys.acm.org/recsys18/healthrecsys/
+[Health RecSys 2018]: https://healthrecsys.github.io/2018/#papers
 [YouTube-8M]: https://research.google.com/youtube8m/
 [Project Data]: https://raw.githubusercontent.com/EunchongKim/github.io/master/Fitness%20Video%20Recommendation/Metrics%202.csv
 [Fitness Video Recommendation]: http://178.128.46.66:8000/
